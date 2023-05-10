@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Guess the Number</title>
+  <title>guess the number</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,10 +33,10 @@
 <body>
   <h1>Guess the Number</h1>
 
-  <p>Enter a number between 1 and 100:</p>
+  <p>enter a number between 1 and 100:</p>
   <input type="text" id="guess-input">
   <br>
-  <button id="guess-btn">Submit</button>
+  <button id="guess-btn">submit</button>
   <br>
   <p id="result"></p>
 
@@ -52,14 +52,14 @@
       const result = document.getElementById("result");
 
       if (isNaN(guess) || guess < 1 || guess > 100) {
-        result.textContent = "Please enter a valid number between 1 and 100.";
+        result.textContent = "please enter a valid number between 1 and 100.";
         return;
       }
 
       attempts++;
 
       if (guess === randomNumber) {
-        result.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+        result.textContent = `congratulations! you guessed the number in ${attempts} attempts.`;
         guessInput.disabled = true;
         document.getElementById("guess-btn").disabled = true;
       } else if (guess < randomNumber) {
