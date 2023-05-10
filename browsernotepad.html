@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Notepad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #content {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    #text-field {
+      width: 100%;
+      height: 300px;
+    }
+
+    #save-button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Browser Notepad</h1>
+
+  <div id="content">
+    <textarea id="text-field" placeholder="Enter your text here"></textarea>
+    <button id="save-button">Save</button>
+  </div>
+
+  <script>
+    const saveButton = document.getElementById("save-button");
+
+    saveButton.addEventListener("click", function() {
+      const textField = document.getElementById("text-field");
+      const content = textField.value;
+
+      // Create a Blob with the text content
+      const blob = new Blob([content], { type: "text/plain" });
+
+      // Create a temporary anchor element to download the file
+      const downloadLink = document.createElement("a");
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = "notepad.txt";
+
+      // Trigger a click event to start the download
+      downloadLink.click();
+
+      // Clean up the temporary elements
+      URL.revokeObjectURL(downloadLink.href);
+      downloadLink.remove();
+    });
+  </script>
+</body>
+</html>
+
+
+<br><br><br>
+<a href="index.html">Home</a>
