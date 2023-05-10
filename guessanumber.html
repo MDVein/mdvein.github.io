@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guess the Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guess the Number</h1>
+
+  <p>Enter a number between 1 and 100:</p>
+  <input type="text" id="guess-input">
+  <br>
+  <button id="guess-btn">Submit</button>
+  <br>
+  <p id="result"></p>
+
+  <script>
+    // Generate a random number between 1 and 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+
+    // Function to check the user's guess
+    function checkGuess() {
+      const guessInput = document.getElementById("guess-input");
+      const guess = parseInt(guessInput.value);
+      const result = document.getElementById("result");
+
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        result.textContent = "Please enter a valid number between 1 and 100.";
+        return;
+      }
+
+      attempts++;
+
+      if (guess === randomNumber) {
+        result.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+        guessInput.disabled = true;
+        document.getElementById("guess-btn").disabled = true;
+      } else if (guess < randomNumber) {
+        result.textContent = "Too low! Try again.";
+      } else {
+        result.textContent = "Too high! Try again.";
+      }
+
+      guessInput.value = "";
+      guessInput.focus();
+    }
+
+    // Attach event listener to the guess button
+    document.getElementById("guess-btn").addEventListener("click", checkGuess);
+
+    // Allow pressing Enter key to submit the guess
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        checkGuess();
+      }
+    });
+  </script>
+</body>
+</html>
+<br><br><a href="index.html">Home</a>
