@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>random color palette generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .color-box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      border: 1px solid #333;
+    }
+  </style>
+  <script>
+    function generatePalette() {
+      var colors = [];
+      var colorBoxContainer = document.getElementById('color-box-container');
+      colorBoxContainer.innerHTML = '';
+
+      for (var i = 0; i < 5; i++) {
+        var color = getRandomColor();
+        colors.push(color);
+
+        var colorBox = document.createElement('div');
+        colorBox.className = 'color-box';
+        colorBox.style.backgroundColor = color;
+        colorBoxContainer.appendChild(colorBox);
+      }
+
+      // Display the generated colors
+      var colorText = document.getElementById('color-text');
+      colorText.textContent = colors.join(', ');
+    }
+
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</head>
+<body>
+  <h1>random color palette generator</h1>
+  <button onclick="generatePalette()">generate palette</button>
+  <div id="color-box-container"></div>
+  <p id="color-text"></p>
+</body>
+</html>
