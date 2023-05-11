@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+    <script>
+        // Represents the choices: rock, paper, and scissors
+        var choices = ["rock", "paper", "scissors"];
+
+        // Handles the player's choice and determines the winner
+        function makeChoice(playerChoice) {
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+            document.getElementById("player-choice").innerHTML = "you chose: " + playerChoice;
+            document.getElementById("computer-choice").innerHTML = "computer chose: " + computerChoice;
+
+            var result;
+            if (playerChoice === computerChoice) {
+                result = "it's a tie!";
+            } else if (
+                (playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "paper" && computerChoice === "rock") ||
+                (playerChoice === "scissors" && computerChoice === "paper")
+            ) {
+                result = "you win!";
+            } else {
+                result = "computer wins!";
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+
+        // Resets the game
+        function resetGame() {
+            document.getElementById("player-choice").innerHTML = "";
+            document.getElementById("computer-choice").innerHTML = "";
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>rock, paper, scissors</h1>
+    <p>make your choice:</p>
+    <button onclick="makeChoice('rock')">rock</button>
+    <button onclick="makeChoice('paper')">paper</button>
+    <button onclick="makeChoice('scissors')">scissors</button>
+    <h3 id="player-choice"></h3>
+    <h3 id="computer-choice"></h3>
+    <h2 id="result"></h2>
+    <button onclick="resetGame()">play again</button>
+</body>
+</html>
