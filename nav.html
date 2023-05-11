@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 960px;
+            overflow: hidden;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            float: left;
+        }
+
+        nav {
+            float: right;
+            display: flex;
+            align-items: center;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        li {
+            margin-left: 10px;
+        }
+
+        li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #fff;
+            padding: 5px;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MDVein</div>
+            <nav>
+                <ul>
+
+<li><a href="index.html">home</a></li>                    
+
+<li class="dropdown">
+                        <a href="#"><u>games</u></a>
+                        <div class="dropdown-content">
+                            <a href="rockpaperscissors.html">rock paper scissors</a>
+                            <a href="guessthenumber.html">guess the number</a>
+
+
+                    <li class="dropdown">
+                        <a href="#"><u>tools</u></a>
+                        <div class="dropdown-content">
+                            <a href="randomcolorgenerator.html">random colors</a>
+                            <a href="browsernotepad.html">browser notepad</a>
+
+                        </div>
+                    </li>
+                    <li><a href="#">about</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
